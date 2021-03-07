@@ -1,0 +1,32 @@
+package project1;
+import java.util.Scanner;
+
+public class project2 {
+	public static void main(String[] args) {
+		//变量命名
+		int BOX_HOLD = 24;
+		int CONTAINER_HOLD = 75;
+		int biscuitsNumber;
+		int boxNumber;
+		int containerNumber;
+		int leftoverBiscuits;
+		int leftoverBox;
+		//数据处理
+		Scanner scan=new Scanner(System.in);
+		
+		System.out.println("输入饼干的数量");
+		biscuitsNumber = scan.nextInt();
+		boxNumber = (biscuitsNumber/BOX_HOLD);
+		leftoverBiscuits = (biscuitsNumber%BOX_HOLD);
+		
+		
+		
+		containerNumber = (boxNumber/CONTAINER_HOLD);
+		leftoverBox = (boxNumber/CONTAINER_HOLD);
+		System.out.println("盒子的数量"+boxNumber);
+		System.out.println("剩余饼干的数量"+leftoverBiscuits);
+		System.out.println("容器的数量"+containerNumber);
+		System.out.println("剩余的盒子"+leftoverBox);
+	}
+
+}
