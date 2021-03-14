@@ -1,0 +1,29 @@
+package week;
+
+import java.util.Scanner;
+
+public class week6 {
+	public static void main(String[] args){
+		int n;
+		int i;
+		System.out.println("enter the lineNumber");
+		Scanner scan = new Scanner(System.in);
+		n = scan.nextInt();
+		
+		System.out.println(n+"层");
+		
+		
+		for(i = 1;i<=n;i++){
+			for(int j = 1;j<=n-i;j++){
+			System.out.print(" ");
+		}
+		for(int j = 1;j<=i;j++){
+			System.out.print("* ");
+		}System.out.println();
+		}
+		
+	}
+	
+	
+	
+}
