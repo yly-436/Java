@@ -1,0 +1,191 @@
+package week8;
+
+import java.util.Scanner;
+
+public class pass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("enter password");
+		System.out.println("1.长度6-10");
+		System.out.println("2.不能有空格");
+		System.out.println("3.一个大写，一个小写，一个数字");
+		Scanner scan = new Scanner(System.in);
+		String s = scan.next();
+		
+		if(s.length()< 6 && s.length()>10){
+			System.out.println("长度不符合要求,重新输入");
+			}
+		else{
+			
+		
+		boolean hasSpace = true;
+		boolean hasUpper = false;
+		boolean haslower = false;
+		boolean hasDigit = false;
+		
+		for(int i = 0;i<s.length();i++){
+			char c = s.charAt(i);
+			if(c ==' '){
+				hasSpace= true;
+				break; 
+				
+			}
+			if(c>='A' && c<='Z'){
+				hasUpper = true;
+			}
+			if(c<'a' && c>'z'){
+				haslower = true;
+				
+			}
+			if(c>'0' && c<'9'){
+				hasDigit = true;
+			}
+		}
+		if(hasSpace && hasUpper && haslower && hasDigit ){
+			System.out.println("恭喜你，符合要求");
+			
+		}
+		else{
+			System.out.println("不符合要求");
+			if(hasSpace){
+				System.out.println("有空格");
+			}
+			if(!hasUpper){
+				System.out.println("无大写");
+			}
+			if(!haslower){
+				System.out.println("无小写");
+			}
+			if(!hasDigit){
+				System.out.println("无数字");
+			}
+		}
+		
+	}
+		}
+	
+
+}
+
+####date######
+package week8;
+
+import java.util.Scanner;
+
+public class data {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("输入式子");
+		Scanner scan = new Scanner(System.in);
+		String express  =scan.next();
+		int pos1= express.indexOf("(");
+		String operateCode = express.substring(0,pos1);
+		int pos2,pos3;
+		double number1 ,number2= 0;
+		pos3 = express.indexOf(")");
+		if(operateCode.equals("doubleMe")){
+			String operateNumber = express.substring(pos1 + 1,pos3);
+			number1 = Double.parseDouble(operateNumber);
+		}
+		else{
+			pos2 = express.indexOf(",");
+			String operateNumber1= express.substring(pos1+1,pos2);
+			String operateNumber2= express.substring(pos2+1,pos3);
+			number1 = Double.parseDouble(operateNumber1);
+			number2 = Double.parseDouble(operateNumber2);
+			
+	
+}
+		double result= 0;
+		switch(operateCode){
+		case "add":result = number1 + number2; break;
+		case "sub":result = number1 - number2;break;
+		case "max":result = number1>number2?number1:number2;break;
+		case "min":result = number1<number2?number1:number2;break;
+		case "doubleMe":result = number1*2;break;
+		default:System.out.println("暂不支持");
+		
+		}
+		String info = express+"="+String.valueOf(result);
+		System.out.println(info);
+		System.out.println(3.9-2.1);
+	}
+
+}
+
+###student###
+package week8;
+
+import java.util.Scanner;
+
+public class studentDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("请一次性输入学生基本信息：学号，姓名，性别，日期");
+		Scanner scan = new Scanner(System.in);
+
+		String data =scan.next();
+		String array[]=data.split("\\+");
+		String id = array[0];
+		String name = array[1];
+		String sex = array[2];
+		String date =array[3];
+		Student stu = new Student(id,name,sex,date);
+		System.out.println(stu.toString());
+		
+		
+	}
+
+}
+///
+
+package week8;
+
+public class Student {
+
+	String id;
+	String name;
+	String sex;
+	String date;
+	
+	public Student(String id, String name, String sex, String date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.sex = sex;
+		this.date = date;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", sex=" + sex + ", date=" + date + "]";
+	}
+	
+}
+
+
